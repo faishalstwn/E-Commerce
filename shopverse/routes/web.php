@@ -1,20 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PageController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Routes untuk halaman (PageController)
+Route::get('/', [PageController::class, 'home']);
+Route::get('/cart', [PageController::class, 'cart']);
+Route::get('/checkout', [PageController::class, 'checkout']);
+Route::get('/contoh', [PageController::class, 'contoh']);
+Route::get('/layout', [PageController::class, 'layout']);
 
-Route::get('/products', function () {
-    return view('products');
-});
-
-Route::get('/cart', function () {
-    return view('cart');
-});
-
-Route::get('/checkout', function () {
-    return view('checkout');
-}); 
-
+// Routes untuk produk (ProductController)
+Route::resource('products', ProductController::class);
