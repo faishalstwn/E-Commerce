@@ -17,13 +17,17 @@
                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 {{ request()->is('/') ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }}">
                     Halaman Utama
                 </a>
+                <a href="/categories" 
+                   class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 {{ request()->is('categories*') ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }}">
+                    List Kategori
+                </a>
                 <a href="/products" 
                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 {{ request()->is('products*') ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }}">
-                    Daftar Produk
+                    List Produk
                 </a>
                 <a href="/cart" 
                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 {{ request()->is('cart') ? 'bg-indigo-600/20 text-indigo-400 border border-indigo-500/30' : 'text-slate-300 hover:text-white hover:bg-slate-800/60' }}">
-                    Halaman Keranjang
+                    Keranjang
                 </a>
             </div>
 
