@@ -97,6 +97,11 @@
                 </div>
             </div>
 
+            <!-- Pagination Links -->
+            <div class="mt-6">
+                {{ $categories->links() }}
+            </div>
+
         </div>
     </div>
 </x-layout>
