@@ -42,9 +42,15 @@
                 </a>
 
                 @auth
-                    <a href="{{ route('dashboard') }}" class="px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white transition-colors shadow-md">
-                        Dashboard
-                    </a>
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-md {{ Auth::user()->isAdmin() ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30' }}">
+                            {{ Auth::user()->role === 'admin' ? 'Admin' : 'User' }}
+                        </span>
+                        <span class="text-xs font-semibold text-slate-300 hidden sm:inline">{{ Auth::user()->name }}</span>
+                        <a href="{{ route('dashboard') }}" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors shadow-md">
+                            Dashboard
+                        </a>
+                    </div>
                 @else
                     <a href="{{ route('login') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
                         Masuk

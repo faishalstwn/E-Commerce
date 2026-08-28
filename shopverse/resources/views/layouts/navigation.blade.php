@@ -34,7 +34,10 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3.5 py-2 border border-slate-700 text-sm leading-4 font-medium rounded-xl text-slate-200 bg-slate-800 hover:text-white hover:bg-slate-700 focus:outline-none transition ease-in-out duration-150 shadow-sm">
+                        <button class="inline-flex items-center gap-2 px-3.5 py-2 border border-slate-700 text-sm leading-4 font-medium rounded-xl text-slate-200 bg-slate-800 hover:text-white hover:bg-slate-700 focus:outline-none transition ease-in-out duration-150 shadow-sm">
+                            <span class="px-2 py-0.5 text-[10px] font-black uppercase tracking-wider rounded-md {{ Auth::user()->isAdmin() ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30' }}">
+                                {{ Auth::user()->role === 'admin' ? 'Admin' : 'User' }}
+                            </span>
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
