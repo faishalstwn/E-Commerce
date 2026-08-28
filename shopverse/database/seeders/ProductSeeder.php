@@ -86,6 +86,7 @@ class ProductSeeder extends Seeder
         ];
 
         foreach ($products as $product) {
+            $product['clicks'] = rand(150, 1250);
             Product::create($product);
         }
     }

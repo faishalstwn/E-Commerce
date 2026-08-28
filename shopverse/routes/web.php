@@ -18,7 +18,12 @@ Route::resource('products', ProductController::class);
 
 // Breeze Authentication & Dashboard Routes
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $totalProducts = \App\Models\Product::count();
+    $totalCategories = \App\Models\Category::count();
+    $totalClicks = \App\Models\Product::sum('clicks');
+    $topProducts = \App\Models\Product::with('category')->orderByDesc('clicks')->take(5)->get();
+
+    return view('dashboard', compact('totalProducts', 'totalCategories', 'totalClicks', 'topProducts'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
