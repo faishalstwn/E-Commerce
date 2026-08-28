@@ -15,10 +15,20 @@ class DatabaseSeeder extends Seeder
     {
        
         User::firstOrCreate(
-            ['email' => 'test@example.com'],
+            ['email' => 'admin@example.com'],
             [
-                'name' => 'Test User',
+                'name' => 'Admin ShopVerse',
                 'password' => bcrypt('password'),
+                'role' => 'admin',
+            ]
+        );
+
+        User::firstOrCreate(
+            ['email' => 'customer@example.com'],
+            [
+                'name' => 'Customer ShopVerse',
+                'password' => bcrypt('password'),
+                'role' => 'user',
             ]
         );
 
