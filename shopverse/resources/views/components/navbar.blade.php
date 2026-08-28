@@ -47,9 +47,15 @@
                             {{ Auth::user()->role === 'admin' ? 'Admin' : 'User' }}
                         </span>
                         <span class="text-xs font-semibold text-slate-300 hidden sm:inline">{{ Auth::user()->name }}</span>
-                        <a href="{{ route('dashboard') }}" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors shadow-md">
+                        <a href="{{ route('dashboard') }}" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white transition-colors shadow-md">
                             Dashboard
                         </a>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">
+                            @csrf
+                            <button type="submit" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 transition-colors">
+                                Keluar
+                            </button>
+                        </form>
                     </div>
                 @else
                     <a href="{{ route('login') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">
